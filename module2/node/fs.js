@@ -28,7 +28,11 @@ console.log(filePathDir);
 
 // C- create
 // we can also give only the dir name, it will create the directory by default in the same directory as the file
-fs.mkdirSync(filePathDir);
+// fs.mkdirSync(filePathDir);
+
+// alternate way
+if(!fs.existsSync("hamariDirectory"))
+    fs.mkdirSync("hamariDirectory");
 
 // R - create
 fs.readdirSync(filePathDir);
