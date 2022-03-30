@@ -23,19 +23,17 @@ console.log(fs.readFileSync(filePath, 'utf-8'));
 fs.unlinkSync(filePath);
 
 // CRUD on directory
-let filePathDir = path.join(__dirname, "temp");
-console.log(filePathDir);
 
-// C- create
-// we can also give only the dir name, it will create the directory by default in the same directory as the file
-// fs.mkdirSync(filePathDir);
-
-// alternate way
+// alternate way to create a directory prevents the error
 if(!fs.existsSync("hamariDirectory"))
     fs.mkdirSync("hamariDirectory");
 
-// R - create
-fs.readdirSync(filePathDir);
+// reads a directory
+let folderPath = "D:\\FJP6\\module1";
+let dirContent = fs.readdirSync(folderPath);
+console.log(dirContent);
 
-// D - delete
-fs.rmdirSync(filePathDir);
+// delete a directory
+fs.rmdirSync("hamariDirectory", {recursive : true});
+
+
