@@ -27,6 +27,7 @@ let filePathDir = path.join(__dirname, "temp");
 console.log(filePathDir);
 
 // C- create
+// we can also give only the dir name, it will create the directory by default in the same directory as the file
 fs.mkdirSync(filePathDir);
 
 // R - create
