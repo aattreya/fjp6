@@ -24,6 +24,13 @@ if(folderExists){
         let ext = path.extname(files[i]);
         let folderName = giveFolderName(ext);
         // console.log("Ext -- "+ext+" Folder Name -- "+folderName);
+        if(!fs.existsSync(path.join(folderPath,folderName)))
+            fs.mkdirSync(path.join(folderPath,folderName));
+        
+        let srcPath = path.join(folderPath,files[i]);
+        let destPath = path.join(folderPath,folderName,files[i]);
+        fs.copyFileSync(srcPath,destPath);
+        fs.unlinkSync(srcPath);
     }
     
 }else{
