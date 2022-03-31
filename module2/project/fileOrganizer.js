@@ -27,10 +27,8 @@ if(folderExists){
         if(!fs.existsSync(path.join(folderPath,folderName)))
             fs.mkdirSync(path.join(folderPath,folderName));
         
-        let srcPath = path.join(folderPath,files[i]);
-        let destPath = path.join(folderPath,folderName,files[i]);
-        fs.copyFileSync(srcPath,destPath);
-        fs.unlinkSync(srcPath);
+        // can also put this in an entire separate function
+        moveFile(folderPath,folderName,files[i]);
     }
     
 }else{
@@ -48,4 +46,11 @@ function giveFolderName(ext){
         }
     }
     return "Others";
+}
+
+function moveFile(folderPath,folderName,fileName){
+    let srcPath = path.join(folderPath,fileName);
+    let destPath = path.join(folderPath,folderName,fileName);
+    fs.copyFileSync(srcPath,destPath);
+    fs.unlinkSync(srcPath);
 }
